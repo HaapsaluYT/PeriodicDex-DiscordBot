@@ -222,6 +222,7 @@ class Balls(commands.GroupCog, group_name=settings.balls_slash_name):
         special: SpecialEnabledTransform | None = None,
         filter: FilteringChoices | None = None,
         duplicates: bool = False,
+        ephemeral: bool = False,
     ):
         """
         Show your current completion of the BallsDex.
@@ -744,6 +745,7 @@ class Balls(commands.GroupCog, group_name=settings.balls_slash_name):
         user: discord.User,
         special: SpecialEnabledTransform | None = None,
         duplicates: bool = False,
+        ephemeral: bool = False,
     ):
         """
         Compare your countryballs with another user.
