@@ -236,9 +236,11 @@ class Balls(commands.GroupCog, group_name=settings.balls_slash_name):
             Filter the list by a specific filter.
         duplicates: bool
             Show the completion of duplicates.
+        ephemeral: bool
+            Whether or not to send the command ephemerally.
         """
         user_obj = user or interaction.user
-        await interaction.response.defer(thinking=True)
+        await interaction.response.defer(thinking=True, ephemeral=ephemeral)
         extra_text = f"{special.name} " if special else ""
         if user is not None:
             try:
@@ -754,8 +756,10 @@ class Balls(commands.GroupCog, group_name=settings.balls_slash_name):
             Filter the results of the comparison to a special event.
         duplicates: bool
             Whether to compare duplicates.
+        ephemeral: bool
+            Whether or not to send the command ephemerally.
         """
-        await interaction.response.defer(thinking=True)
+        await interaction.response.defer(thinking=True, ephemeral=ephemeral)
         if interaction.user == user:
             await interaction.followup.send("You cannot compare with yourself.", ephemeral=True)
             return
